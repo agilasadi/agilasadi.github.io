@@ -13,6 +13,40 @@
 		href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
 		rel="stylesheet">
 	<link href="dist/output.css" rel="stylesheet">
+
+  <style>
+    .page-anchor {
+      display: flex;
+      align-items: center;
+      transition: height 450ms;
+      position: relative;
+    }
+
+    .page-anchor:hover {
+      height: auto;
+    }
+
+    .anchor-icon {
+      opacity: 0;
+      transition: opacity 450ms;
+      position: absolute;
+      left: 0;
+    }
+
+    .page-anchor:hover .anchor-icon {
+      opacity: 1;
+    }
+
+	.anchor-text {
+		padding-left: 14px;
+	}
+
+    .page-anchor:not(:hover) .anchor-icon {
+      opacity: 0;
+    }
+  </style>
+</html>
+
 </head>
 
 <body class="bg-1">
@@ -27,10 +61,8 @@
 						<p class="text-gray-500 pt-8">Prefered tech stack:
 							<b class="text-gray-400">AWS + Docker + GoLang + PHP + Vue.js</b>
 						</p>
-						<p class="text-gray-400 pt-4 lg:pr-32 xl:pr-48">
-							I'm 28, a Senior Full Stack Developer, living in The Netherlands, originally from
-							Azerbaijan. working on a SAAS product as Senior Developer.
-						</p>
+						<p class="text-gray-500 pt-4 lg:pr-32 xl:pr-48">
+							I'm 28, a Senior Back-end Developer from Azerbaijan, living in The Netherlands, Utrecht. working on a SAAS product as a Senior Developer.						</p>
 						<div class="mt-2">
 							<a class="underline text-gray-500 text-sm" target="_blank"
 								href="https://youtu.be/qHE_XGtUNx4?si=YMsTV5pSB8bhPXBe">
@@ -40,16 +72,31 @@
 						<div class="pt-8 hidden lg:block">
 							<ul class="text-gray-400">
 								<li class="py-1">
-									<a class="hover:text-gray-100 focus:text-gray-100 active:text-gray-100 font-semibold tracking-wide"
-										href="#experiences"># Experiences</a>
+									<div class="page-anchor -ml-4">
+										<span class="anchor-icon">#</span>
+										<span class="pl-4">
+											<a class="hover:text-gray-100 focus:text-gray-100 active:text-gray-100 font-semibold tracking-wide"
+										href="#experiences">Experiences</a>
+										</span>
+									</div>
 								</li>
 								<li class="py-1">
-									<a class="hover:text-gray-100 focus:text-gray-100 active:text-gray-100 font-semibold tracking-wide"
-										href="#techStack"># Tech Stack</a>
+									<div class="page-anchor -ml-4">
+										<span class="anchor-icon">#</span>
+										<span class="pl-4">
+											<a class="hover:text-gray-100 focus:text-gray-100 active:text-gray-100 font-semibold tracking-wide"
+										href="#techStack">Tech Stack</a>
+										</span>
+									</div>
 								</li>
 								<li class="py-1">
-									<a class="hover:text-gray-100 focus:text-gray-100 active:text-gray-100 font-semibold tracking-wide"
-										href="#methodsAndConcepts"># Concepts</a>
+									<div class="page-anchor -ml-4">
+										<span class="anchor-icon">#</span>
+										<span class="pl-4">
+											<a class="hover:text-gray-100 focus:text-gray-100 active:text-gray-100 font-semibold tracking-wide"
+										href="#methodsAndConcepts">Topics</a>
+										</span>
+									</div>
 								</li>
 							</ul>
 						</div>
@@ -235,7 +282,7 @@
 					</div>
 				</div>
 				<div id="methodsAndConcepts" class="pt-8">
-					<h1 class="font-bold text-gray-400 text-xl pb-6">Concepts</h1>
+					<h1 class="font-bold text-gray-400 text-xl pb-6">Topics</h1>
 					<div class="bg-2 rounded-md shadow-md shadowed-box-border mb-4">
 						<div class="p-10 text-gray-400">
 							Unit Tests, Integration Tests, Microservices, Message Brokers, LAMP,
