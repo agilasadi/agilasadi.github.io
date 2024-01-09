@@ -766,6 +766,10 @@ video {
   letter-spacing: 0.025em;
 }
 
+.tracking-normal {
+  letter-spacing: 0em;
+}
+
 .text-gray-100 {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
@@ -807,7 +811,7 @@ video {
 }
 
 * {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .section-background {
