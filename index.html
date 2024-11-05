@@ -24,7 +24,7 @@
 						<div class="text-white text-2xl font-bold pt-4">Senior Software Engineer
 						</div>
 						<p class="text-gray-400 pt-8 lg:pr-32 xl:pr-48">
-							I'm <span id="age">28</span>, a Senior Back-end Developer from Azerbaijan.
+							I'm a Senior Back-end Developer from Azerbaijan.
 							I live in The Netherlands, Utrecht. As a Senior Developer,
 							I work on the Payment System & User Operations of a SAAS product.
 						</p>
@@ -278,23 +278,4 @@
 		</div>
 	</div>
 </body>
-
-<script>
-	updateAge();
-
-	function updateAge() {
-		document.getElementById("age").textContent = calculateAge();
-	}
-
-	function calculateAge() {
-		var currentDate = new Date();
-		var age = currentDate.getFullYear() - 1995;
-
-		if (currentDate.getMonth() < 6) {
-			age--;
-		}
-
-		return age;
-	}
-</script>
 </html>
