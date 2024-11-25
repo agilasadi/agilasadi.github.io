@@ -1,9 +1,9 @@
 Proprietary License Agreement
 
-Copyright © 2024 2024. All rights reserved.
+Copyright © 2024 Agil Asadi. All rights reserved.
 
 1. Ownership:
-   This repository and its contents, including but not limited to code, designs, text, and media files (collectively referred to as the "Work"), are the exclusive property of [Your Name] ("Owner").
+   This repository and its contents, including but not limited to code, designs, text, and media files (collectively referred to as the "Work"), are the exclusive property of Agil Asadi ("Owner").
 
 2. Grant of License:
    The Owner does not grant permission to use, modify, copy, distribute, or create derivative works from the Work without explicit prior written consent. Unauthorized use of the Work is strictly prohibited.
@@ -20,7 +20,7 @@ Copyright © 2024 2024. All rights reserved.
    The Owner reserves the right to terminate this license or any use of the Work at any time if the terms of this license are violated.
 
 6. Contact:
-   For permissions or inquiries, contact [Your Email Address].
+   For permissions or inquiries, contact agilasadi.95@gmail.com.
 
 Agil Asadi
 2024
