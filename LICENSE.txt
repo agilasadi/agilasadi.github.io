@@ -1,0 +1,26 @@
+Proprietary License Agreement
+
+Copyright © 2024 2024. All rights reserved.
+
+1. Ownership:
+   This repository and its contents, including but not limited to code, designs, text, and media files (collectively referred to as the "Work"), are the exclusive property of [Your Name] ("Owner").
+
+2. Grant of License:
+   The Owner does not grant permission to use, modify, copy, distribute, or create derivative works from the Work without explicit prior written consent. Unauthorized use of the Work is strictly prohibited.
+
+3. Restrictions:
+   - You may not use the Work for commercial purposes without prior written approval.
+   - You may not modify, distribute, or sublicense the Work.
+   - You may not reproduce the Work, in whole or in part, for any purpose other than personal reference.
+
+4. Disclaimer:
+   The Work is provided "as is," without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. The Owner shall not be held liable for any claim, damages, or other liabilities arising from the use or inability to use the Work.
+
+5. Termination:
+   The Owner reserves the right to terminate this license or any use of the Work at any time if the terms of this license are violated.
+
+6. Contact:
+   For permissions or inquiries, contact [Your Email Address].
+
+Agil Asadi
+2024
