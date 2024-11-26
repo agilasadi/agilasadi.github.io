@@ -816,7 +816,7 @@ video {
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: monospace;
 }
 
 body {
