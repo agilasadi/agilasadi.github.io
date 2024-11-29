@@ -588,6 +588,10 @@ video {
   }
 }
 
+.relative {
+  position: relative;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -690,6 +694,10 @@ video {
 
 .pb-6 {
   padding-bottom: 1.5rem;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
 }
 
 .pl-4 {
@@ -833,9 +841,7 @@ body::after {
   border-bottom: 1px solid #1d1f1f;
 }
 
-section:last-child
-
-.line-height-0 {
+section:last-child .line-height-0 {
   line-height: 0;
 }
 
@@ -867,6 +873,13 @@ section:last-child
 
 .page-anchor:not(:hover) .anchor-icon {
   opacity: 0;
+}
+
+.emoji-wrapper::before {
+  content: "😔";
+  position: absolute;
+  left: -1.3rem;
+  top: 0;
 }
 
 @media (min-width: 1024px) {
