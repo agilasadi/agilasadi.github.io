@@ -740,6 +740,10 @@ video {
   padding-top: 2rem;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -770,6 +774,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -784,6 +793,10 @@ video {
 
 .font-thin {
   font-weight: 100;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .tracking-wide {
