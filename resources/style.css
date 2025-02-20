@@ -49,10 +49,7 @@ section:last-child .line-height-0 {
 }
 
 .anchor-icon {
-    opacity: 0;
-    transition: opacity 450ms;
-    position: absolute;
-    left: 0;
+    transition: opacity 250ms;
 }
 
 .page-anchor:hover .anchor-icon {

@@ -588,6 +588,10 @@ video {
   }
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
 }
@@ -627,6 +631,10 @@ video {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .mt-16 {
@@ -805,6 +813,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 * {
   font-family: monospace;
 }
@@ -852,10 +864,7 @@ section:last-child .line-height-0 {
 }
 
 .anchor-icon {
-  opacity: 0;
-  transition: opacity 450ms;
-  position: absolute;
-  left: 0;
+  transition: opacity 250ms;
 }
 
 .page-anchor:hover .anchor-icon {
@@ -893,6 +902,10 @@ section:last-child .line-height-0 {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
 }
 
 .focus\:text-white:focus {
