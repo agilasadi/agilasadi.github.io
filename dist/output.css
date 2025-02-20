@@ -740,10 +740,6 @@ video {
   padding-top: 2rem;
 }
 
-.text-right {
-  text-align: right;
-}
-
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
@@ -785,17 +781,8 @@ video {
   font-weight: 100;
 }
 
-.uppercase {
-  text-transform: uppercase;
-}
-
 .tracking-wide {
   letter-spacing: 0.025em;
-}
-
-.text-gray-300 {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-400 {
@@ -811,6 +798,11 @@ video {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 * {
