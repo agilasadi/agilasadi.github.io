@@ -1,0 +1,24 @@
+{
+  "name": "agilasadi.github.io",
+  "version": "1.0.0",
+  "description": "npx tailwindcss -i ./resources/style.css -o ./dist/output.css --watch",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./resources/style.css -o ./dist/output.css",
+    "watch": "npx tailwindcss -i ./resources/style.css -o ./dist/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agilasadi/agilasadi.github.io.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/agilasadi/agilasadi.github.io/issues"
+  },
+  "homepage": "https://github.com/agilasadi/agilasadi.github.io#readme"
+}
