@@ -23,14 +23,8 @@ body::after {
 }
 
 .shadowed-box-border {
-    border-top: 1px solid #1d1f1f;
-    border-left: 1px solid #1d1f1f;
-    border-right: 1px solid #1d1f1f;
-    border-bottom: none;
-}
-
-.shadowed-box-border:last-child {
-    border-bottom: 1px solid #1d1f1f;
+    border: 1px solid #393939;
+    padding: 0.5rem 0;
 }
 
 section:last-child .line-height-0 {
