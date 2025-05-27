@@ -621,14 +621,6 @@ video {
   margin-top: -4rem;
 }
 
-.-mt-4 {
-  margin-top: -1rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -827,7 +819,7 @@ body::after {
   right: 0;
   width: 100%;
   height: 4rem;
-  background: linear-gradient(to bottom, rgba(16, 15, 15, 0) 0%, rgb(16 15 15) 100%);
+  background: linear-gradient(to bottom, rgba(16, 15, 15, 0) 0%, rgb(11 9 9) 100%);
   pointer-events: none;
   z-index: 9999;
 }
