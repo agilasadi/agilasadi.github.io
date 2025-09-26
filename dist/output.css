@@ -674,6 +674,10 @@ video {
   width: fit-content;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .list-disc {
   list-style-type: disc;
 }
@@ -688,6 +692,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .rounded-full {
