@@ -43,14 +43,14 @@ section:last-child .line-height-0 {
     line-height: 0;
 }
 
-.page-anchor {
+.clickable-text-button {
     display: flex;
     align-items: center;
     transition: height 450ms;
     posityion: relative;
 }
 
-.page-anchor:hover {
+.clickable-text-button:hover {
     height: auto;
 }
 
@@ -58,7 +58,7 @@ section:last-child .line-height-0 {
     transition: opacity 250ms;
 }
 
-.page-anchor:hover .anchor-icon {
+.clickable-text-button:hover .anchor-icon {
     opacity: 1;
 }
 
@@ -66,8 +66,8 @@ section:last-child .line-height-0 {
     padding-left: 14px;
 }
 
-.page-anchor:not(:hover) .anchor-icon {
-    opacity: 0;
+.clickable-text-button:not(:hover) .anchor-icon {
+    opacity: 0.08;
 }
 
 .emoji-wrapper::before {

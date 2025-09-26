@@ -596,6 +596,10 @@ video {
   position: relative;
 }
 
+.-left-2\.5 {
+  left: -0.625rem;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -608,33 +612,9 @@ video {
   top: 0px;
 }
 
-.left-1 {
-  left: 0.25rem;
-}
-
-.-left-1 {
-  left: -0.25rem;
-}
-
-.-left-2 {
-  left: -0.5rem;
-}
-
-.-left-3 {
-  left: -0.75rem;
-}
-
-.-left-2\.5 {
-  left: -0.625rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.-ml-4 {
-  margin-left: -1rem;
 }
 
 .-mt-16 {
@@ -687,6 +667,11 @@ video {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .list-disc {
@@ -758,10 +743,6 @@ video {
   padding-left: 0.75rem;
 }
 
-.pl-4 {
-  padding-left: 1rem;
-}
-
 .pl-6 {
   padding-left: 1.5rem;
 }
@@ -802,9 +783,14 @@ video {
   padding-top: 2rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-xl {
@@ -815,16 +801,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .font-black {
@@ -865,20 +841,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
-}
-
-.text-gray-100 {
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity, 1));
-}
-
-.opacity-0 {
-  opacity: 0;
 }
 
 .backdrop-blur-lg {
@@ -929,14 +891,14 @@ section:last-child .line-height-0 {
   line-height: 0;
 }
 
-.page-anchor {
+.clickable-text-button {
   display: flex;
   align-items: center;
   transition: height 450ms;
   posityion: relative;
 }
 
-.page-anchor:hover {
+.clickable-text-button:hover {
   height: auto;
 }
 
@@ -944,7 +906,7 @@ section:last-child .line-height-0 {
   transition: opacity 250ms;
 }
 
-.page-anchor:hover .anchor-icon {
+.clickable-text-button:hover .anchor-icon {
   opacity: 1;
 }
 
@@ -952,8 +914,8 @@ section:last-child .line-height-0 {
   padding-left: 14px;
 }
 
-.page-anchor:not(:hover) .anchor-icon {
-  opacity: 0;
+.clickable-text-button:not(:hover) .anchor-icon {
+  opacity: 0.08;
 }
 
 .emoji-wrapper::before {
