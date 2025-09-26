@@ -961,6 +961,10 @@ section:last-child .line-height-0 {
   .sm\:block {
     display: block;
   }
+
+  .sm\:flex {
+    display: flex;
+  }
 }
 
 @media (min-width: 1024px) {
