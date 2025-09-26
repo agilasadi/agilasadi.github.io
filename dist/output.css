@@ -698,6 +698,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
