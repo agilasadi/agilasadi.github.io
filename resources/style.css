@@ -67,7 +67,7 @@ section:last-child .line-height-0 {
 }
 
 .clickable-text-button:not(:hover) .anchor-icon {
-    opacity: 0.08;
+    opacity: 0;
 }
 
 .emoji-wrapper::before {

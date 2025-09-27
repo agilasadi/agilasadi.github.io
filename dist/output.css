@@ -625,8 +625,8 @@ video {
   margin-left: 0.5rem;
 }
 
-.mr-8 {
-  margin-right: 2rem;
+.mr-6 {
+  margin-right: 1.5rem;
 }
 
 .mt-16 {
@@ -639,10 +639,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mr-6 {
-  margin-right: 1.5rem;
 }
 
 .flex {
@@ -751,8 +747,8 @@ video {
   padding-right: 0.5rem;
 }
 
-.pr-8 {
-  padding-right: 2rem;
+.pr-6 {
+  padding-right: 1.5rem;
 }
 
 .pt-10 {
@@ -781,10 +777,6 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pr-6 {
-  padding-right: 1.5rem;
 }
 
 .text-6xl {
@@ -919,7 +911,7 @@ section:last-child .line-height-0 {
 }
 
 .clickable-text-button:not(:hover) .anchor-icon {
-  opacity: 0.08;
+  opacity: 0;
 }
 
 .emoji-wrapper::before {
