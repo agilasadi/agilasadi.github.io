@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://raw.githubusercontent.com/agilasadi/agilasadi.github.io/master/picture-100p.png"
-        type="/image/png">
+    <link rel="icon" href="picture-100p.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Sora:wght@300;400;500;600;700;800&display=swap"
@@ -16,9 +15,13 @@
 </head>
 
 <body>
-    <div class="page-shadow-top"></div>
-    <div class="page-shadow-bottom"></div>
-    <div class="container mx-auto py-16 px-3">
+    <div class="mosaic-stage" data-home-pointer-stage>
+        <canvas class="home-pointer-texture" data-home-pointer-texture aria-hidden="true"></canvas>
+        <div data-home-pointer-ring class="home-pointer-ring" aria-hidden="true"></div>
+    </div>
+    <div class="page-shadow-top" aria-hidden="true"></div>
+    <div class="page-shadow-bottom" aria-hidden="true"></div>
+    <div class="mx-auto w-full max-w-5xl py-16 px-4 sm:px-6 page-front" data-mosaic-guide>
         <div class="lg:flex">
             <div class="lg:w-1/2 px-3">
                 <div class="top-0 lg:sticky lg:vh-100-128">
@@ -56,17 +59,7 @@
                                                 class="anchor-icon text-white absolute -left-2.5 hover:opacity-100">#</span>
                                             <span>
                                                 <a class="hover:text-white focus:text-white active:text-white font-semibold tracking-wide"
-                                                    href="#techStack">Tech Stack</a>
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li class="py-1 w-fit">
-                                        <div class="clickable-text-button">
-                                            <span
-                                                class="anchor-icon text-white absolute -left-2.5 hover:opacity-100">#</span>
-                                            <span>
-                                                <a class="hover:text-white focus:text-white active:text-white font-semibold tracking-wide"
-                                                    href="#topics">Topics</a>
+                                                    href="#languages">I Speak</a>
                                             </span>
                                         </div>
                                     </li>
@@ -76,11 +69,11 @@
 
                         <div class="bottom-0 lg:absolute left-0 mt-8">
                             <div class="mt-2 items-center flex">
-                                <div class="profile-image-wrapper mr-12 hidden sm:block">
+                                <div class="profile-image-wrapper mr-12">
                                     <div
                                         class="p-1 rounded-full profile-image-container shadowed-box-border backdrop-blur-lg">
-                                        <img class="h-10 w-10 profile-image-shadow rounded-full"
-                                            src="https://raw.githubusercontent.com/agilasadi/agilasadi.github.io/master/picture-100p.png"
+                                        <img class="h-10 w-10 profile-image-shadow rounded-full object-cover"
+                                            src="picture.jpg"
                                             alt="Agil Asadi">
                                     </div>
                                 </div>
@@ -117,7 +110,7 @@
                                     </a>
                                     <a href="https://twitter.com/agilasadi" target="_blank"
                                         class="flex text-gray-100 hover:text-white items-center pr-6 clickable-text-button underline">
-                                        <span class="line-height-0">Twitter</span>
+                                        <span class="line-height-0">X</span>
                                         <div class="ml-2 h-5 flex items-center anchor-icon">
                                             <svg class="h-full" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -137,15 +130,15 @@
                 </div>
             </div>
 
-            <div id="experiences" class="lg:w-1/2 px-3 lg:pt-0 pt-10 -mt-16">
+            <div id="experiences" class="lg:w-1/2 px-3 lg:pt-0 pt-10 -mt-16" data-page-shadow-column>
                 <div class="mt-16">
                     <h1 class="pb-6 font-semibold tracking-wide text-gray-200">Experiences</h1>
                     <div class="shadowed-box-border px-0 py-[0.5rem]">
                         <div class="p-9">
                             <div>
                                 <a class="flex text-gray-200 hover:text-white items-center pr-6 clickable-text-button w-fit underline text-lg font-bold"
-                                    href="https://www.linkedin.com/company/sensitech" target="_blank">
-                                    <span>Sensitech</span>
+                                    href="https://www.linkedin.com/company/channext" target="_blank">
+                                    <span>Channext</span>
                                     <div class="ml-2 h-5 flex items-center anchor-icon">
                                         <svg class="h-full" fill="currentColor" viewBox="0 0 20 20"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -158,10 +151,39 @@
                                         </svg>
                                     </div>
                                 </a>
-                                <div class="text-gray-400">May '25 - Present</div>
+                                <div class="text-gray-400">Mar '26 - Present</div>
                             </div>
                             <p class="text-gray-300 pt-6">
-                                I contribute to development of tracking systems and temperature monitoring.
+                                Senior Software Engineer in Utrecht, working with PHP, Python, RabbitMQ, Elasticsearch,
+                                Laravel, and Vue.js.
+                            </p>
+                            <ul class="text-gray-300 list-disc pl-6 pt-2">
+                                <li>Closed an attribution gap that cost renewals despite strong ROI</li>
+                                <li>Shipped lead visibility vendors need to defend channel spend</li>
+                            </ul>
+                        </div>
+                        <div class="p-9">
+                            <div>
+                                <a class="flex text-gray-200 hover:text-white items-center pr-6 clickable-text-button w-fit underline text-lg font-bold"
+                                    href="https://www.linkedin.com/company/sensitech" target="_blank">
+                                    <span>Carrier/Sensitech</span>
+                                    <div class="ml-2 h-5 flex items-center anchor-icon">
+                                        <svg class="h-full" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z">
+                                            </path>
+                                            <path
+                                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="text-gray-400">May '25 - Feb '26</div>
+                            </div>
+                            <p class="text-gray-300 pt-6">
+                                Senior Software Engineer in Sassenheim. I developed tracking and temperature monitoring
+                                systems with Python, Node.js, PHP, MySQL, DynamoDB, and AWS/CDK.
                             </p>
                         </div>
                         <div class="p-9">
@@ -378,40 +400,9 @@
                         </div>
                     </div>
                 </div>
-                <div id="techStack" class="pt-16">
-                    <h1 class="pb-6 font-semibold tracking-wide text-gray-200">Tech Stack</h1>
-                    <div class="section-background shadowed-box-border">
-                        <div class="p-10 text-gray-300">
-                            PHP, GoLang, Node.js, C#, MySQL, MongoDB, Laravel, AWS/Serverless, GraphQL, Redis,
-                            JavaScript, Vue.js
-                        </div>
-                    </div>
-                </div>
-                <div id="topics" class="pt-16">
-                    <h1 class="pb-6 font-semibold tracking-wide text-gray-200">Topics</h1>
-                    <div class="section-background shadowed-box-border">
-                        <div class="p-10 text-gray-300">
-                            Microservices, Message Brokers
-                        </div>
-                    </div>
-                </div>
-                <div id="practices" class="pt-16">
-                    <h1 class="pb-6 font-semibold tracking-wide text-gray-200">Practices</h1>
-                    <div class="section-background shadowed-box-border">
-                        <div class="p-10 text-gray-300">
-                            <ul class="text-gray-300 list-disc pl-6">
-                                <li>Technical Design</li>
-                                <li>Agile Software Development</li>
-                                <li>Object-Oriented Programming</li>
-                                <li>Building Serverless Architecture</li>
-                                <li>Developing with SOLID principles</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div id="languages" class="pt-16">
                     <h1 class="pb-6 font-semibold tracking-wide text-gray-200">I Speak</h1>
-                    <div class="section-background shadowed-box-border">
+                    <div class="shadowed-box-border">
                         <div class="p-10 text-gray-300">
                             <ul class="text-gray-300 pl-3">
                                 <li><span class="text-gray-200 pr-2">C2</span>English</li>
@@ -423,11 +414,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="text-gray-400 pt-16 text-xs font-thin">© Agil Asadi 2025. All rights reserved</div>
             </div>
         </div>
     </div>
+    <script type="module" src="resources/js/pageShadows.js"></script>
+    <script type="module" src="resources/js/mosaic/boot.js"></script>
 </body>
 
 </html>
