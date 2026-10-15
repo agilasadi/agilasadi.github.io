@@ -11,12 +11,16 @@ export { CELL_GAP, TARGET_CELL_SIZE }
 export const CELL_SIZE = TARGET_CELL_SIZE
 export const RING_OUTER_PLATES = 2
 export const RING_MID_PLATES = 4
-export const PLATFORM_LIFT = 4
+export const PLATFORM_LIFT = 2
 export const STRIKE_FADE_MS = 2800
-export const ACCENT_RGB = [232, 220, 208]
+export const ACCENT_RGB = [200, 200, 200]
 export const PAGE_BG_RGB = [11, 15, 18]
-export const TONE_DELTAS = [-1, 0, 1, 2, 3]
-export const GUTTER_DELTA = -6
+export const TONE_DELTAS = [-1, 0, 1, 1, 2]
+export const GUTTER_DELTA = 0
+export const SHADE_DELTA = -4
+export const DEAD_DELTA = -5
+export const LIFT_FACE_DELTA = 9
+export const STRIKE_GLOW_MAX = 0.15
 
 export function mosaicPalette(bg = PAGE_BG_RGB) {
     const base = Array.isArray(bg) && bg.length >= 3
@@ -25,30 +29,14 @@ export function mosaicPalette(bg = PAGE_BG_RGB) {
 
     return {
         gutter: base.map((c) => Math.min(255, Math.max(0, c + GUTTER_DELTA))),
+        shade: base.map((c) => Math.min(255, Math.max(0, c + SHADE_DELTA))),
+        dead: base.map((c) => Math.min(255, Math.max(0, c + DEAD_DELTA))),
         tones: TONE_DELTAS.map((delta) => base.map((c) => Math.min(255, Math.max(0, c + delta)))),
     }
 }
 
 function pickToneIndex() {
-    const roll = Math.random()
-
-    if (roll < 0.5) {
-        return 2
-    }
-
-    if (roll < 0.72) {
-        return 1
-    }
-
-    if (roll < 0.88) {
-        return 3
-    }
-
-    if (roll < 0.95) {
-        return 0
-    }
-
-    return 4
+    return 1
 }
 
 function fillCells(cols, rows) {
@@ -247,7 +235,7 @@ function paintFace(ctx, rgb, col, row, highlight, cell, lift = 0, bevel = true, 
     }
 }
 
-function paintDisplay(ctx, display, cols, rows, glows, now, accent, palette, cell, platform, clipTop = 0) {
+function paintDisplay(ctx, display, cols, rows, glows, now, accent, palette, cell, platform, clipTop = 0, dead = new Map()) {
     ctx.fillStyle = rgbCss(palette.gutter)
     ctx.fillRect(0, 0, cols * cell, rows * cell)
 
@@ -267,28 +255,36 @@ function paintDisplay(ctx, display, cols, rows, glows, now, accent, palette, cel
         for (let col = 0; col < cols; col += 1) {
             const index = row * cols + col
             const glowT = glowStrengthAt(glows, index, now)
-            const rgb = mixRgb(restRgb(display, index), accent, glowT)
+            const isLifted = platform.has(index)
+            const isDead = dead.size > 0 && dead.has(index)
 
-            if (platform.has(index)) {
+            if (glowT === 0 && !isLifted && !isDead && display[index * 3] === pageBg[0]
+                && display[index * 3 + 1] === pageBg[1] && display[index * 3 + 2] === pageBg[2]) {
+                continue
+            }
+
+            const rgb = mixRgb(isDead && !isLifted ? palette.dead : restRgb(display, index), accent, glowT)
+
+            if (isLifted) {
                 lifted.push({ col, row, rgb })
                 continue
             }
 
-            paintFace(ctx, rgb, col, row, highlight, cell)
+            paintFace(ctx, rgb, col, row, highlight, cell, 0, false)
         }
     }
 
     for (const plate of lifted) {
         paintFace(
             ctx,
-            plate.rgb,
+            plate.rgb.map((c) => Math.min(255, c + LIFT_FACE_DELTA)),
             plate.col,
             plate.row,
             highlight,
             cell,
             PLATFORM_LIFT,
             true,
-            palette.gutter,
+            palette.shade,
         )
     }
 }
@@ -300,7 +296,7 @@ function glowStrengthAt(glows, index, now) {
         return 0
     }
 
-    return strikeStrength(now - startedAt)
+    return strikeStrength(now - startedAt) * STRIKE_GLOW_MAX
 }
 
 function toGridPoint(x, y, originX, originY) {
@@ -330,6 +326,8 @@ function prefersReducedMotion() {
     }
 }
 
+const NO_DEAD = new Map()
+
 export function bootPointerTexture(root = document) {
     const stage = root.querySelector('[data-home-pointer-stage]')
     const canvas = stage?.querySelector('[data-home-pointer-texture]')
@@ -340,6 +338,7 @@ export function bootPointerTexture(root = document) {
         restoreColors() {},
         rest() {},
         strike() {},
+        setEnabled() {},
         clearBorderVisits() {},
         destroy() {},
     }
@@ -364,6 +363,7 @@ export function bootPointerTexture(root = document) {
     const glows = new Map()
     const flock = createMosaicFlock()
     const reduceMotion = prefersReducedMotion()
+    let enabled = false
     let raf = 0
     let lastTime = 0
     let idleTimer = 0
@@ -380,12 +380,6 @@ export function bootPointerTexture(root = document) {
     }
 
     function platformFromFlock() {
-        if (flock.formed && flock.following) {
-            const center = flock.centroid()
-
-            return new Set(collectDiskCells(cols, rows, center.x, center.y, flock.radius, cell))
-        }
-
         return flock.occupiedCells(cellIndexAt)
     }
 
@@ -404,6 +398,7 @@ export function bootPointerTexture(root = document) {
             cell,
             platform,
             mosaicClipTop(originY, cell),
+            enabled ? flock.dead : NO_DEAD,
         )
     }
 
@@ -424,7 +419,7 @@ export function bootPointerTexture(root = document) {
     }
 
     function armIdleWander() {
-        if (reduceMotion || idleTimer || lastGather) {
+        if (!enabled || reduceMotion || idleTimer || lastGather) {
             return
         }
 
@@ -519,7 +514,7 @@ export function bootPointerTexture(root = document) {
     }
 
     function gather(cx, cy, radius) {
-        if (reduceMotion || cols === 0 || rows === 0 || !(radius > 0)) {
+        if (!enabled || reduceMotion || cols === 0 || rows === 0 || !(radius > 0)) {
             return
         }
 
@@ -548,6 +543,10 @@ export function bootPointerTexture(root = document) {
     }
 
     function strike(x, y) {
+        if (!enabled) {
+            return
+        }
+
         const local = toGridPoint(x, y, originX, originY)
         const index = cellIndexAt(local.x, local.y, cols, rows, cell)
 
@@ -555,7 +554,33 @@ export function bootPointerTexture(root = document) {
             return
         }
 
+        if (!reduceMotion && flock.toggleAt(index, cellIndexAt)) {
+            platform = platformFromFlock()
+        }
+
         glows.set(index, performance.now())
+        paint()
+        startTick()
+    }
+
+    function setEnabled(next, sink) {
+        if (next === enabled) {
+            return
+        }
+
+        enabled = next
+
+        if (next) {
+            flock.enable(reduceMotion)
+            armIdleWander()
+        } else {
+            lastGather = null
+            clearIdleTimer()
+            const local = sink ? toGridPoint(sink.x, sink.y, originX, originY) : { x: 0, y: 0 }
+            flock.disable(local.x, local.y, reduceMotion)
+        }
+
+        platform = platformFromFlock()
         paint()
         startTick()
     }
@@ -587,6 +612,7 @@ export function bootPointerTexture(root = document) {
         restoreColors,
         rest,
         strike,
+        setEnabled,
         clearBorderVisits: rest,
         destroy() {
             observer.disconnect()

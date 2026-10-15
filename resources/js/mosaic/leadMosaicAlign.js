@@ -1,5 +1,5 @@
 export const CELL_GAP = 1
-export const TARGET_CELL_SIZE = 16
+export const TARGET_CELL_SIZE = 8
 
 export function mosaicTileCount(width, gap = CELL_GAP, cell = TARGET_CELL_SIZE) {
     return Math.max(1, Math.round((Math.max(width, gap) - gap) / cell))

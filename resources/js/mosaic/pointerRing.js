@@ -1,4 +1,4 @@
-export const POINTER_RING_OMEGA = 4.6
+export const POINTER_RING_OMEGA = 8
 export const POINTER_RING_ZETA = 1.1
 export const POINTER_RING_MAX_DT = 1 / 30
 export const POINTER_RING_MAX_ERROR = 220

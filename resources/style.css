@@ -4,7 +4,7 @@
 
 :root {
     --ui-bg: 11 15 18;
-    --ui-accent: 232 220 208;
+    --ui-accent: 200 200 200;
     --ui-ink-100: 244 240 235;
     --ui-ink-200: 230 224 217;
     --ui-ink-300: 210 202 194;
@@ -212,4 +212,54 @@ section:last-child .line-height-0 {
         height: calc(100vh - 128px);
         top: 64px
     }
+}
+.dots-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.375rem 0.25rem 0.5rem;
+    border: 1px solid rgb(var(--ui-line));
+    border-radius: 0;
+    background: rgb(var(--ui-bg));
+    color: rgb(var(--ui-ink-400));
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: color 250ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.dots-toggle:hover,
+.dots-toggle:focus-visible {
+    color: rgb(var(--ui-ink-300));
+}
+
+.dots-toggle:focus-visible {
+    outline: 1px solid rgb(var(--ui-line));
+    outline-offset: 2px;
+}
+
+.dots-toggle-track {
+    position: relative;
+    width: 1.5rem;
+    height: 1rem;
+    border-radius: 0;
+    background: rgb(var(--ui-line));
+    transition: background-color 250ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.dots-toggle-thumb {
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+    width: 0.5rem;
+    height: 0.75rem;
+    border-radius: 0;
+    background: rgb(var(--ui-ink-400));
+    transition: transform 250ms cubic-bezier(0.87, 0, 0.13, 1),
+        background-color 250ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.dots-toggle[aria-checked="true"] .dots-toggle-thumb {
+    transform: translateX(0.75rem);
+    background: rgb(var(--ui-ink-300));
 }
